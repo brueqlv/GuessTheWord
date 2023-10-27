@@ -47,7 +47,6 @@
             this.tbName.Size = new System.Drawing.Size(350, 49);
             this.tbName.TabIndex = 0;
             this.tbName.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            this.tbName.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.tbName_KeyPress);
             // 
             // tbLetter
             // 
@@ -58,7 +57,6 @@
             this.tbLetter.Size = new System.Drawing.Size(350, 49);
             this.tbLetter.TabIndex = 1;
             this.tbLetter.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            this.tbLetter.TextChanged += new System.EventHandler(this.tbLetter_TextChanged);
             this.tbLetter.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.tbLetter_KeyPress);
             // 
             // btnNextWord
@@ -90,7 +88,7 @@
             this.tbCheckIsCorrect.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.tbCheckIsCorrect.Enabled = false;
             this.tbCheckIsCorrect.Font = new System.Drawing.Font("Microsoft Sans Serif", 16.125F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.tbCheckIsCorrect.Location = new System.Drawing.Point(46, 388);
+            this.tbCheckIsCorrect.Location = new System.Drawing.Point(46, 461);
             this.tbCheckIsCorrect.Name = "tbCheckIsCorrect";
             this.tbCheckIsCorrect.Size = new System.Drawing.Size(350, 49);
             this.tbCheckIsCorrect.TabIndex = 4;
@@ -102,7 +100,7 @@
             this.tbGuessesAndLetterCount.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.tbGuessesAndLetterCount.Enabled = false;
             this.tbGuessesAndLetterCount.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.tbGuessesAndLetterCount.Location = new System.Drawing.Point(46, 477);
+            this.tbGuessesAndLetterCount.Location = new System.Drawing.Point(46, 392);
             this.tbGuessesAndLetterCount.Name = "tbGuessesAndLetterCount";
             this.tbGuessesAndLetterCount.Size = new System.Drawing.Size(350, 37);
             this.tbGuessesAndLetterCount.TabIndex = 5;

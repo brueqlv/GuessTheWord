@@ -1,4 +1,5 @@
-﻿using System;
+﻿using GuessTheWord.Classes;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -18,6 +19,8 @@ namespace GuessTheWord
         int allowedGuesses = 0;
         char[] targetWord;
 
+        private Words words = new Words();
+
         public FormGuessTheWord()
         {
             InitializeComponent();
@@ -30,28 +33,11 @@ namespace GuessTheWord
             updateCount();
         }
 
-        string[] words =
-        {
-            "PELMENIS",
-            "DESA",
-            "MAIZE",
-            "SIERS"
-        };
-
-
         private void btnNextWord_Click(object sender, EventArgs e)
         {
             chooseWord();
             guessCount = 0;
             updateCount();
-        }
-
-
-
-
-        private void tbLetter_TextChanged(object sender, EventArgs e)
-        {
-
         }
 
         private void btnGuess_Click(object sender, EventArgs e)
@@ -91,7 +77,8 @@ namespace GuessTheWord
         private void chooseWord()
         {
             Random random = new Random();
-            word = words[random.Next(0, words.Length)];
+            string[] wordArrray = words.GetWords();
+            word = wordArrray[random.Next(0, wordArrray.Length)];
             char[] wordArray = word.ToCharArray();
             targetWord = new char[word.Length];
             for (int i = 0; i < word.Length; i++)
@@ -105,11 +92,6 @@ namespace GuessTheWord
         private void updateCount()
         {
             tbGuessesAndLetterCount.Text = guessCount + "/" + allowedGuesses;
-        }
-
-        private void tbName_KeyPress(object sender, KeyPressEventArgs e)
-        {
-
         }
 
         private void tbLetter_KeyPress(object sender, KeyPressEventArgs e)
