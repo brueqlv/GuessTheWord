@@ -13,14 +13,21 @@ namespace GuessTheWord
 {
     public partial class FormGuessTheWord : Form
     {
+        string word;
+        int guessCount = 0;
+        int allowedGuesses = 0;
+        char[] targetWord;
+
         public FormGuessTheWord()
         {
             InitializeComponent();
+            targetWord = new char[0];
         }
 
         private void FormGuessTheWord_Load(object sender, EventArgs e)
         {
-
+            chooseWord();
+            updateCount();
         }
 
         string[] words =
@@ -31,23 +38,90 @@ namespace GuessTheWord
             "SIERS"
         };
 
-        char[] word;
 
         private void btnNextWord_Click(object sender, EventArgs e)
         {
-            Random random = new Random();
-            word = words[random.Next(0, words.Length)].ToCharArray();
-            tbName.Text = getTargetWord(word);
+            chooseWord();
+            guessCount = 0;
+            updateCount();
         }
 
-        public string getTargetWord(char[] word)
+
+
+
+        private void tbLetter_TextChanged(object sender, EventArgs e)
         {
-            string[] targetWord = new string[word.Length];
+
+        }
+
+        private void btnGuess_Click(object sender, EventArgs e)
+        {
+
+            guessCount++;
+            string input = tbLetter.Text;
+            char selectedLetter = char.ToUpper(input[0]);
             for (int i = 0; i < word.Length; i++)
             {
-                targetWord[i] = "_";
+                if (word[i] == selectedLetter)
+                {
+                    targetWord[i] = word[i];
+                }
             }
-            return String.Join(" ",targetWord);
+            tbName.Text = String.Join(" ", targetWord);
+
+            string targetWordStr = String.Join("", targetWord);
+
+            if(targetWordStr != word && guessCount >= allowedGuesses)
+            {
+                tbName.Text = word;
+                tbCheckIsCorrect.Text = "You Lost";
+
+            } else if (targetWordStr == word)
+            {
+                tbName.Text = word;
+                tbCheckIsCorrect.Text = "You Won";
+            }
+
+            tbLetter.Text = "";
+            btnGuess.Enabled = false;
+            updateCount();
+
+        }
+
+        private void chooseWord()
+        {
+            Random random = new Random();
+            word = words[random.Next(0, words.Length)];
+            char[] wordArray = word.ToCharArray();
+            targetWord = new char[word.Length];
+            for (int i = 0; i < word.Length; i++)
+            {
+                targetWord[i] = '_';
+            }
+            tbName.Text = String.Join(" ", targetWord);
+            allowedGuesses = word.Length + 5;
+        }
+
+        private void updateCount()
+        {
+            tbGuessesAndLetterCount.Text = guessCount + "/" + allowedGuesses;
+        }
+
+        private void tbName_KeyPress(object sender, KeyPressEventArgs e)
+        {
+
+        }
+
+        private void tbLetter_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (char.IsLetter(e.KeyChar) && tbLetter.Text.Length == 0)
+            {
+                btnGuess.Enabled = true;
+            }
+            else
+            {
+                btnGuess.Enabled = false;
+            }
         }
     }
 }

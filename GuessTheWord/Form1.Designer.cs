@@ -38,20 +38,28 @@
             // 
             // tbName
             // 
+            this.tbName.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.tbName.Enabled = false;
             this.tbName.Font = new System.Drawing.Font("Microsoft Sans Serif", 16.125F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.tbName.Location = new System.Drawing.Point(46, 40);
             this.tbName.MaximumSize = new System.Drawing.Size(500, 70);
             this.tbName.Name = "tbName";
-            this.tbName.Size = new System.Drawing.Size(350, 56);
+            this.tbName.Size = new System.Drawing.Size(350, 49);
             this.tbName.TabIndex = 0;
+            this.tbName.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.tbName.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.tbName_KeyPress);
             // 
             // tbLetter
             // 
+            this.tbLetter.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.tbLetter.Font = new System.Drawing.Font("Microsoft Sans Serif", 16.125F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.tbLetter.Location = new System.Drawing.Point(46, 117);
             this.tbLetter.Name = "tbLetter";
-            this.tbLetter.Size = new System.Drawing.Size(350, 56);
+            this.tbLetter.Size = new System.Drawing.Size(350, 49);
             this.tbLetter.TabIndex = 1;
+            this.tbLetter.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.tbLetter.TextChanged += new System.EventHandler(this.tbLetter_TextChanged);
+            this.tbLetter.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.tbLetter_KeyPress);
             // 
             // btnNextWord
             // 
@@ -66,6 +74,7 @@
             // 
             // btnGuess
             // 
+            this.btnGuess.Enabled = false;
             this.btnGuess.Font = new System.Drawing.Font("Microsoft Sans Serif", 16.125F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnGuess.Location = new System.Drawing.Point(46, 194);
             this.btnGuess.Name = "btnGuess";
@@ -73,24 +82,31 @@
             this.btnGuess.TabIndex = 3;
             this.btnGuess.Text = "Guess";
             this.btnGuess.UseVisualStyleBackColor = true;
+            this.btnGuess.Click += new System.EventHandler(this.btnGuess_Click);
             // 
             // tbCheckIsCorrect
             // 
+            this.tbCheckIsCorrect.BackColor = System.Drawing.SystemColors.Menu;
+            this.tbCheckIsCorrect.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.tbCheckIsCorrect.Enabled = false;
             this.tbCheckIsCorrect.Font = new System.Drawing.Font("Microsoft Sans Serif", 16.125F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.tbCheckIsCorrect.Location = new System.Drawing.Point(46, 388);
             this.tbCheckIsCorrect.Name = "tbCheckIsCorrect";
-            this.tbCheckIsCorrect.Size = new System.Drawing.Size(350, 56);
+            this.tbCheckIsCorrect.Size = new System.Drawing.Size(350, 49);
             this.tbCheckIsCorrect.TabIndex = 4;
+            this.tbCheckIsCorrect.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // tbGuessesAndLetterCount
             // 
             this.tbGuessesAndLetterCount.BackColor = System.Drawing.SystemColors.Control;
             this.tbGuessesAndLetterCount.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.tbGuessesAndLetterCount.Enabled = false;
             this.tbGuessesAndLetterCount.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.tbGuessesAndLetterCount.Location = new System.Drawing.Point(46, 477);
             this.tbGuessesAndLetterCount.Name = "tbGuessesAndLetterCount";
             this.tbGuessesAndLetterCount.Size = new System.Drawing.Size(350, 37);
             this.tbGuessesAndLetterCount.TabIndex = 5;
+            this.tbGuessesAndLetterCount.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // FormGuessTheWord
             // 
