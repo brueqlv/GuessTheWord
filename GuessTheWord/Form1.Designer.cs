@@ -62,6 +62,7 @@
             this.btnNextWord.TabIndex = 2;
             this.btnNextWord.Text = "Next Word";
             this.btnNextWord.UseVisualStyleBackColor = true;
+            this.btnNextWord.Click += new System.EventHandler(this.btnNextWord_Click);
             // 
             // btnGuess
             // 
@@ -104,6 +105,7 @@
             this.Controls.Add(this.tbName);
             this.Name = "FormGuessTheWord";
             this.Text = "GuessTheWord";
+            this.Load += new System.EventHandler(this.FormGuessTheWord_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 
